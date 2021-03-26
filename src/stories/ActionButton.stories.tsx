@@ -34,3 +34,8 @@ Small.args = {
   size: "small",
   label: "Button",
 };
+
+export const Shadow = Template.bind({});
+Shadow.args = {
+  shadow: false,
+};

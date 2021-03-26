@@ -5,6 +5,8 @@ export interface ButtonProps {
    * Is this the principal call to action on the page?
    */
   primary?: boolean;
+
+  shadow?: boolean;
   /**
    * What background color to use
    */
@@ -26,21 +28,46 @@ export interface ButtonProps {
 export const Button: React.FC<ButtonProps> = ({
   primary = false,
   size = "medium",
-  backgroundColor,
-  label,
+  backgroundColor = "#0002",
+  label = "Button",
+  shadow = false,
   onClick,
   ...props
 }) => {
-  if (!backgroundColor) {
-    backgroundColor = "#0002";
-  }
+  const sm = {
+    width: "8rem",
+    height: "2.4rem",
+  };
+  const md = {
+    width: "10rem",
+    height: "3rem",
+  };
+  const lg = {
+    width: "13rem",
+    height: "4rem",
+  };
+
+  const getWidthAndHeight = () => {
+    if (size === "small") return sm;
+    if (size === "medium") return md;
+    if (size === "large") return lg;
+    else return md;
+  };
+
+  const sizeRes = getWidthAndHeight();
+
   const StyledContainer = styled.div`
     line-height: 50px;
-    height: 50px;
-    text-align: center;
-    width: 250px;
+
+    height: ${sizeRes.height};
+    width: ${sizeRes.width};
+    display: flex;
+    justify-content: center;
+    align-items: center;
     cursor: pointer;
     color: #333;
+    ${shadow ? "box-shadow: 3px 3px 10px #0007;" : null}
+
     transition: all 0.3s;
     position: relative;
     span {
@@ -76,6 +103,7 @@ export const Button: React.FC<ButtonProps> = ({
       background-color: ${backgroundColor};
     }
     &:hover {
+      box-shadow: none;
       &::after {
         opacity: 0;
         transform: scale(0.1, 1);

@@ -2944,7 +2944,7 @@
   dependencies:
     "@types/react" "*"
 
-"@types/mdast@^3.0.0":
+"@types/mdast@^3.0.0", "@types/mdast@^3.0.3":
   version "3.0.3"
   resolved "https://registry.yarnpkg.com/@types/mdast/-/mdast-3.0.3.tgz#2d7d671b1cd1ea3deb306ea75036c2a0407d2deb"
   integrity sha512-SXPBMnFVQg1s00dlMCc/jCdvPqdE4mXaMMCeRlxLDmTAEoegHT53xKtkDnzDTOcmMHUfcjyf36/YYZ6SxRdnsw==
@@ -14324,6 +14324,14 @@ ts-essentials@^2.0.3:
   version "2.0.12"
   resolved "https://registry.yarnpkg.com/ts-essentials/-/ts-essentials-2.0.12.tgz#c9303f3d74f75fa7528c3d49b80e089ab09d8745"
   integrity sha512-3IVX4nI6B5cc31/GFFE+i8ey/N2eA0CZDbo6n0yrz0zDX8ZJ8djmU1p+XRz7G3is0F3bB3pu2pAroFdAWQKU3w==
+
+ts-mdast@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/ts-mdast/-/ts-mdast-1.0.0.tgz#62c1b5cb0c63dcab044f7f998f280700d504b57e"
+  integrity sha512-FmT5GbMU629/ty64741v7TdO8jm5xW09okr2VNExkLuRk5ngjKIDdn/woTB8lDtcgCMRS8lUNubImen0MkdF6g==
+  dependencies:
+    "@types/mdast" "^3.0.3"
+    "@types/unist" "^2.0.3"
 
 ts-pnp@1.2.0:
   version "1.2.0"
