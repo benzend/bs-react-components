@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export interface ButtonProps {
+export interface IButtonProps {
   /**
    * Is this the principal call to action on the page?
    */
@@ -15,6 +15,10 @@ export interface ButtonProps {
    * How large should the button be?
    */
   size?: "small" | "medium" | "large";
+
+  tabIndex?: number;
+
+  link?: string;
   /**
    * Button contents
    */
@@ -25,12 +29,20 @@ export interface ButtonProps {
   onClick?: () => void;
 }
 
-export const Button: React.FC<ButtonProps> = ({
+export interface IActionButtonProps extends IButtonProps {}
+
+const StyledLink = styled.a`
+  text-decoration: none;
+`;
+
+export const ActionButton: React.FC<IActionButtonProps> = ({
   primary = false,
   size = "medium",
   backgroundColor = "#0002",
   label = "Button",
   shadow = false,
+  link = "#",
+  tabIndex = 1,
   onClick,
   ...props
 }) => {
@@ -92,7 +104,7 @@ export const Button: React.FC<ButtonProps> = ({
       transform: scale(0.1, 1);
     }
     &:after {
-      content: attr(data-content);
+      content: "";
       position: absolute;
       bottom: 0;
       left: 0;
@@ -120,8 +132,10 @@ export const Button: React.FC<ButtonProps> = ({
 
   const mode = primary ? "button--primary" : "button--secondary";
   return (
-    <StyledContainer>
-      <span>{label.toUpperCase()}</span>
-    </StyledContainer>
+    <StyledLink href={link} tabIndex={tabIndex}>
+      <StyledContainer tabIndex={1}>
+        <span>{label.toUpperCase()}</span>
+      </StyledContainer>
+    </StyledLink>
   );
 };

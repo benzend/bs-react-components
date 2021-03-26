@@ -1,17 +1,17 @@
 import { Story, Meta } from "@storybook/react/types-6-0";
 
-import { ActionButton, IActionButtonProps } from "./ActionButton";
+import { NormalButton, INormalButtonProps } from "./NormalButton";
 
 export default {
-  title: "ActionButton",
-  component: ActionButton,
+  title: "NormalButton",
+  component: NormalButton,
   argTypes: {
     backgroundColor: { control: "color" },
   },
 } as Meta;
 
-const Template: Story<IActionButtonProps> = (args) => (
-  <ActionButton {...args} />
+const Template: Story<INormalButtonProps> = (args) => (
+  <NormalButton {...args} />
 );
 
 export const Primary = Template.bind({});
