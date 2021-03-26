@@ -1,0 +1,8 @@
+@keyframes button-click {
+  from {
+    background: green;
+  }
+  to {
+    background: red;
+  }
+}
