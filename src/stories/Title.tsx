@@ -24,7 +24,7 @@ export const Title: React.FC<ITitleProps> = ({
     padding: 0,
     ...textShadowProperties,
   };
-  const ElementDefiner: React.FC = ({ children }) => {
+  const ElementDefiner: React.FC = () => {
     switch (element) {
       case "h1":
         return <h1 style={style}>{text}</h1>;
